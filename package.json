@@ -1,0 +1,21 @@
+{
+  "name": "webservice",
+  "version": "1.0.0",
+  "description": "Webservice Basado en Node y Firebase",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node index.js"
+  },
+  "keywords": [
+    "Node",
+    "firebase",
+    "express"
+  ],
+  "author": "Hansel Adolfo Vielman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "firebase-admin": "^5.12.1"
+  }
+}
