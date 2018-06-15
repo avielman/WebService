@@ -40,10 +40,16 @@ const app = express();
 
 //app.use(express.static('public'));
 
-app.get('/', function(req, res) {
-    console.log(post);
-    res.send(post);
+app.get('/', function(req, res) {    
+    res.send("");
     console.log('corriendo en /');
+});
+
+post
+app.get('/posts', function(req, res) {
+  console.log(post);
+  res.send(post);
+  console.log('corriendo en /posts');
 });
 
 app.listen(puerto, function(){
