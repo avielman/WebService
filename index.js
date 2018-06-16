@@ -5,27 +5,33 @@ var puerto = 81;
 var files = require('fs');
 console.log("\n *STARTING* \n");
 var pronosticos = files.readFileSync("pronostico.json");
-console.log("Ouput Content : \n" + pronosticos23
-);
+console.log("Ouput Content : \n" + pronosticos);
 console.log("\n *EXIT* \n");
 
 
 // Express
 const express = require('express');
+var partialResponse = require('express-partial-response');
 const app = express();
 
 app.use(express.static(__dirname + '/'));
+app.use(partialResponse({query: 'fields'}));
 
 app.get('/', function(req, res) {    
-    res.send("");
-    console.log('corriendo en /');
+  res.send("");
+  console.log('corriendo en /');
 });
 
-app.get('/posts', function(req, res) {  
-  console.log(post);
-  res.send(pronosticos);
+app.get('/posts', function(req, res) {    
+  res.json(JSON.parse(pronosticos));
+  //res.send(pronosticos);
   console.log('corriendo en /posts');
 });
+
+app.get('/posts', function(res, res, next){
+  res.json(JSON.parse(pronosticos));
+});
+
 
 app.listen(puerto, function(){
   console.clear();
